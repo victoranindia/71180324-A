@@ -2,44 +2,55 @@
 # 71180324
 # Universitas Kristen Duta Wacana
 
-# Soal Struktur Kontrol Perulangan
+# Soal Modular Programming
 
-# Milea mendapat tugas dari gurunya untuk menuliskan barisan bilangan prima pada suatu interval. Sebagai teman yang baik, kamu akhirnya memutuskan untuk membuatkan program sesuai dengan kebutuhannya tersebut.
-
+# Dilan berencana pergi liburan bersama Milea pada akhir pekan ini. Namun Dilan masih kebingungan tentang konversi mata uang yang akan digunakan. Bantulah Dilan agar dapat mengkonversi mata uang dari IDR ke USD, IDR ke JPY, dan juga IDR ke SGD. (Kurs USD 14.000, JPY 133, SGD 10.750)
 
 # Input
-    # Interval = awal, akhir
-    # awal = inputan user (int)
-    # akhir = inputan user (int)
-    # awal = 5
-    # akhir = 15
+    # Mau konversi ke mana? USD, JPY, SGD
+    # (float) angka rupiah yang ingin dikonversi -> rupiah
 
 # Process
-    # for int i = awal, i<akhir+1, i++:
-    #   if i > 1:
-    #       for int j = 2, j<i,j++:
-    #           if i % j == 0:
-    #               break -> terdapat faktor lain selain bilangan 1 dan bilangan itu sendiri
-    #       else:
-    #           print(i)
-    #   else:
-    #       diemin
+    # hasil = 0
+
+    # def convert(idr, rate):
+        # return idr/rate
+
+    # if matauang=='usd':
+    #   nama = "USD"
+    #   hasil = convert(rupiah, 14000)
+    # elif matauang=='jpy':
+    #   nama = "JPY"
+    #   hasil = convert(rupiah, 133)
+    # else:
+    #   nama = "SGD"
+    #   hasil = convert(rupiah, 10750)
+
 # Output
-    # print -> 5, 7, 11, 13
+# print("Uang Dilan sebesar Rp. %f jika dikonversi ke dalam %s menjadi %f" %(rupiah, nama, hasil))
+
 
 #Source code program
 # Input
-print("Bilangan prima pada suatu interval")
-awal = int(input("Masukkan angka awal dari interval: "))
-akhir = int(input("Masukkan angka akhir dari interval: "))
+print("Konversi Rupiah ke USD/JPY/SGD")
+print("1. IDR/USD")
+print("2. IDR/JPY")
+print("3. IDR/SGD")
+pil = input("Masukkan pilihan (USD/JPY/SGD)")
+rupiah = float(input("Masukkan uang dalam rupiah: "))
 
 # Proses
-print("Bilangan prima pada interval %d hingga %d adalah " %(awal, akhir))
-for i in range(awal, akhir+1):
-    if i > 1:
-        for j in range(2, i):
-            if (i%j)==0:
-                break
-        else:
-            print(i)
+hasil = 0
+
+def convert(idr, rate):
+    return idr/rate
+
+if pil.upper()=='USD':
+    hasil = convert(rupiah,14000)
+elif pil.upper()=='JPY':
+    hasil = convert(rupiah,133)
+else:
+    hasil = convert(rupiah,10750)
+
 # Output
+print("Uang Dilan sebesar Rp. %f jika dikonversi ke dalam %s menjadi %f" %(rupiah, pil.upper(), hasil))
